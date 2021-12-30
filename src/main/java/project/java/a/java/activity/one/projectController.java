@@ -17,46 +17,32 @@ import org.springframework.ui.Model;
 @Controller
 public class projectController {
     
-    @RequestMapping("/input")
+    @RequestMapping("/fruits")
     public String getData(HttpServletRequest data, Model discountprocess){
         
-        String inputname = data.getParameter("var_name");
+        process thisisprocess = new process();
         
-        String inputprice = data.getParameter("var_price");
+        String inputname = thisisprocess.getName(data);
         
-        String inputquantity = data.getParameter("var_quantity");
+        String inputprice = thisisprocess.getPrice(data);
         
-        String displaytotal = data.getParameter("var_pricetotal");
+        String inputquantity = thisisprocess.getQty(data);
         
-        String displaydiscount = data.getParameter("discount");
-        
-        Double iPrice = Double.valueOf(inputprice);
-        Double iTotal = Double.valueOf(inputquantity);
-        Double PriceTotal = iPrice * iTotal;
-        Double pay = null;
-        
-        if (PriceTotal < 16000)
-        {
-            displaydiscount = ("You don't get any discounts...");
-            pay = PriceTotal - (0 * PriceTotal/100);
-        }
-        else if (PriceTotal >= 16000 && PriceTotal < 25000)
-        {
-            displaydiscount = ("Yeay! You got 10% discount!");
-            pay = PriceTotal - (10 * PriceTotal/100);
-        }
-        else if (PriceTotal > 25000)
-        {
-            displaydiscount = ("Yeay! You got 15% discount!");
-            pay = PriceTotal - (15 * PriceTotal/100);
-        }
-        
+        Double input_price = thisisprocess.dataPrice(inputprice);
+        Double input_quantity = thisisprocess.dataQty(inputquantity);
+        Double price_total = thisisprocess.getPriceTotal(input_price, input_quantity);
+        String discount = thisisprocess.getDiscount(price_total);
+        Double totalDiscount = thisisprocess.getTotalDiscount(price_total);
+        Double finalPrice = thisisprocess.getFinal(price_total, totalDiscount);
+
         discountprocess.addAttribute("name", inputname);
         discountprocess.addAttribute("price", inputprice);
         discountprocess.addAttribute("quantity", inputquantity);
-        discountprocess.addAttribute("total", PriceTotal);
-        discountprocess.addAttribute("discount", displaydiscount);
-        discountprocess.addAttribute("pay", pay);
+        discountprocess.addAttribute("pricetotal",price_total);
+        discountprocess.addAttribute("discount", discount);
+        discountprocess.addAttribute("totalDiscount", totalDiscount);
+        discountprocess.addAttribute("finalPrice", finalPrice);
+        
         
         return "AnnisaDivayuAndriyani";
     }
