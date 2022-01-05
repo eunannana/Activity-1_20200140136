@@ -10,18 +10,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <hr>
         <div>FRESH FRUITS MARKET INVOICE</div>
-        <div>THANK YOU FOR SHOPPING HERE!</div>
         <hr>
         <tr>
             <th>Fruit           : </th><td th:text="${name}"></td></br></br>
             <th>Price per kg    : Rp </th><td th:text="${price}"></td></br></br>
-            <th>Quantity (kg)   : </th><td th:text="${quantity}"><th> kg </th></td></br></br>
+            <th>Quantity        : </th><td th:text="${quantity}"><th> kg </th></td></br></br>
             <th>Total           : Rp </th><td th:text="${pricetotal}"></td></br></br>
             <th>Discount        : </th><td th:text="${discount}"></td></br></br>
             <th>Discount amount : Rp </th><td th:text="${totalDiscount}"></td></br></br>
             <th>Final price     : Rp </th><td th:text="${finalPrice}"></td></br></br>
-        </tr>
-    
+            <th>Pay             : Rp </th><td th:text="${money}"></td></br></br>
+            <th>Return          : Rp </th><td th:text="${return}"></td></br></br>
+            
+    </tr>
+    <hr>
+    <div>\^0^/ THANK YOU FOR SHOPPING IN FRESH FRUITS MARKET \^0^/</div></br>
+        <div>\^0^/ HAVE A NICE DAY AND STAY HEALTY AND BE HAPPY! \^0^/ </div> 
+        <hr>
     </body>
 </html>

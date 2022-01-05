@@ -5,7 +5,6 @@
 package project.java.a.java.activity.one;
 
 import javax.servlet.http.HttpServletRequest;
-
 /**
  *
  * @author andri
@@ -13,39 +12,39 @@ import javax.servlet.http.HttpServletRequest;
 class process {
     public String getName(HttpServletRequest data) {
       String thisisname = data.getParameter("name");
-      
       return thisisname;
     }
-  
     public String getQty(HttpServletRequest data){
       String thisisquantity = data.getParameter("quantity");
-      
       return thisisquantity;
     }
     public Double dataQty(String inputquantity){
       Double input_quantity = Double.valueOf(inputquantity);
       return input_quantity;
     }
-  
     public String getPrice(HttpServletRequest data){
       String thisisprice = data.getParameter("price");
-      
       return thisisprice;
     }
     public Double dataPrice(String inputprice){
       Double input_price = Double.valueOf(inputprice);
       return input_price;
     }
-  
+    public String getMoney(HttpServletRequest data)
+    {
+        String thisismoney = data.getParameter("money");
+        return thisismoney;
+    }
+     public Double dataMoney (String money){
+         Double itsmoney = Double.valueOf(money);
+         return itsmoney;
+     }
     public Double getPriceTotal(Double input_price, Double input_quantity){
         Double PriceTotal = input_price * input_quantity;
         return PriceTotal;
     }
-    
     public String getDiscount(Double PriceTotal){
-      
       String DisplayDiscount = "";
-     
         if (PriceTotal < 16000)
         {
             return DisplayDiscount = ("You don't get any discounts...");
@@ -81,7 +80,6 @@ class process {
         }
         return getTotalDisc;
     }
-  
     public Double getFinal(Double PriceTotal, Double getTotalDisc){
         Double getFinalPrice = null;
         if (PriceTotal < 16000)
@@ -101,7 +99,9 @@ class process {
         }
         return getFinalPrice;
     }
-  
-  
-          
+    public Double getReturn (Double itsreturn, Double money, Double getFinalPrice)
+    {
+        itsreturn = money - getFinalPrice;
+        return itsreturn;
+    }      
 }
