@@ -42,7 +42,9 @@ public class projectController {
         Double finalPrice = thisisprocess.getFinal(price_total, totalDiscount);
         
         Double thisisreturn = thisisprocess.getReturn(finalPrice, thisismoney, finalPrice);
-
+        
+        String information = thisisprocess.dataReturn(thisismoney, thisisreturn, finalPrice);
+    
         discountprocess.addAttribute("name", inputname);
         discountprocess.addAttribute("price", inputprice);
         discountprocess.addAttribute("quantity", inputquantity);
@@ -51,7 +53,7 @@ public class projectController {
         discountprocess.addAttribute("discount", discount);
         discountprocess.addAttribute("totalDiscount", totalDiscount);
         discountprocess.addAttribute("finalPrice", finalPrice);
-        discountprocess.addAttribute("return", thisisreturn);
+        discountprocess.addAttribute("return", information );
         
         return "AnnisaDivayuAndriyani";
     }

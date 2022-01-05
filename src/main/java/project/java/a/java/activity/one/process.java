@@ -103,5 +103,22 @@ class process {
     {
         itsreturn = money - getFinalPrice;
         return itsreturn;
-    }      
+    }
+    public String dataReturn (Double itsmoney, Double itsreturn, Double getFinalPrice){
+        String ReturnInfo = "";
+    
+        if (itsmoney < getFinalPrice)
+        {
+            return ReturnInfo = "Your money is not enough, please add Rp " + itsreturn;
+        }
+        else if (itsmoney == getFinalPrice)
+        {
+            return ReturnInfo = "Enough money and no return";
+        }
+        else if (itsmoney > getFinalPrice)
+        {
+            return ReturnInfo = "Rp " + itsreturn;
+        }
+        return ReturnInfo;
+    }
 }
